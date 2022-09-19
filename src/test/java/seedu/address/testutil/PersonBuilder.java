@@ -22,11 +22,9 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
-    //@@author cheeheng-reused
-    //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
-    //#diff-c4705f0e6c86ae58f17f0dd1cec5b1abc7614ae894187cfe901068b6d6fb012d
-    public static final String DEFAULT_REMARK = "";
-    //@@author
+    //Adapted from https://github.com/se-edu/addressbook-level3/commit/556cbd0e03ff224d7a68afba171ad2eb0ce56bbf
+    //Default remark changed from "" to some non-empty string
+    public static final String DEFAULT_REMARK = "random friend";
 
     private Name name;
     private Phone phone;
@@ -126,6 +124,11 @@ public class PersonBuilder {
     }
     //@@author
 
+    /**
+     * Builds a {@code Person} from this instance of {@code PersonBuilder} object.
+     *
+     * @return {@code Person} corresponding to the {@code PersonBuilder} object.
+     */
     public Person build() {
         //@@author cheeheng-reused
         //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
