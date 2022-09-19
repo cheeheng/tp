@@ -23,17 +23,25 @@ public class Person {
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
+    private final Remark remark;
 
     /**
-     * Every field must be present and not null.
+     * Every field must be present and not null, except for possibly the new Remark field.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags,
+                  Remark remark) {
+        //@@author cheeheng-reused
+        //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
+        //#diff-c4705f0e6c86ae58f17f0dd1cec5b1abc7614ae894187cfe901068b6d6fb012d
+        //with minor modifications
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+        this.remark = remark;
+        //@@author
     }
 
     public Name getName() {
@@ -51,6 +59,14 @@ public class Person {
     public Address getAddress() {
         return address;
     }
+
+    //@@author cheeheng-reused
+    //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
+    //#diff-c4705f0e6c86ae58f17f0dd1cec5b1abc7614ae894187cfe901068b6d6fb012d
+    public Remark getRemark() {
+        return remark;
+    }
+    //@@author
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
@@ -92,13 +108,14 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
-                && otherPerson.getTags().equals(getTags());
+                && otherPerson.getTags().equals(getTags())
+                && otherPerson.getRemark().equals(getRemark());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, address, tags, remark);
     }
 
     @Override
@@ -117,6 +134,12 @@ public class Person {
             builder.append("; Tags: ");
             tags.forEach(builder::append);
         }
+
+        Remark remark = getRemark();
+        if (remark.value != null) {
+            builder.append("; Remark: ").append(remark);
+        }
+
         return builder.toString();
     }
 

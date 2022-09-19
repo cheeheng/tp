@@ -8,6 +8,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -21,11 +22,23 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
+    //@@author cheeheng-reused
+    //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
+    //#diff-c4705f0e6c86ae58f17f0dd1cec5b1abc7614ae894187cfe901068b6d6fb012d
+    public static final String DEFAULT_REMARK = "";
+    //@@author
+
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
     private Set<Tag> tags;
+
+    //@@author cheeheng-reused
+    //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
+    //#diff-c4705f0e6c86ae58f17f0dd1cec5b1abc7614ae894187cfe901068b6d6fb012d
+    private Remark remark;
+    //@@author
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -36,6 +49,12 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
+
+        //@@author cheeheng-reused
+        //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
+        //#diff-c4705f0e6c86ae58f17f0dd1cec5b1abc7614ae894187cfe901068b6d6fb012d
+        remark = new Remark(DEFAULT_REMARK);
+        //@@author
     }
 
     /**
@@ -47,6 +66,12 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         tags = new HashSet<>(personToCopy.getTags());
+
+        //@@author cheeheng-reused
+        //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
+        //#diff-c4705f0e6c86ae58f17f0dd1cec5b1abc7614ae894187cfe901068b6d6fb012d
+        remark = personToCopy.getRemark();
+        //@@author
     }
 
     /**
@@ -89,8 +114,24 @@ public class PersonBuilder {
         return this;
     }
 
+    //@@author cheeheng-reused
+    //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
+    //#diff-c4705f0e6c86ae58f17f0dd1cec5b1abc7614ae894187cfe901068b6d6fb012d
+    /**
+     * Sets the {@code Remark} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withRemark(String remark) {
+        this.remark = new Remark(remark);
+        return this;
+    }
+    //@@author
+
     public Person build() {
-        return new Person(name, phone, email, address, tags);
+        //@@author cheeheng-reused
+        //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
+        //#diff-c4705f0e6c86ae58f17f0dd1cec5b1abc7614ae894187cfe901068b6d6fb012d
+        return new Person(name, phone, email, address, tags, remark);
+        //@@author
     }
 
 }
