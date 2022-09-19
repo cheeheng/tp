@@ -41,6 +41,12 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private FlowPane tags;
 
+    //@@author cheeheng-reused
+    //Reused from https://nus-cs2103-ay2223s1.github.io/tp/tutorials/AddRemark.html
+    @FXML
+    private Label remark;
+    //@@author
+
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
