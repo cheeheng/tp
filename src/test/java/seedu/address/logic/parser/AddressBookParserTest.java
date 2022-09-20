@@ -22,6 +22,7 @@ import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
@@ -31,6 +32,7 @@ import seedu.address.testutil.PersonUtil;
 
 public class AddressBookParserTest {
 
+    private static final String TEST_REMARK_COMMAND_STRING = RemarkCommand.COMMAND_WORD + " 1 " + "r/random remark";
     private final AddressBookParser parser = new AddressBookParser();
 
     @Test
@@ -87,6 +89,15 @@ public class AddressBookParserTest {
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD) instanceof ListCommand);
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD + " 3") instanceof ListCommand);
     }
+
+    //@@author cheeheng-reused
+    //Reused from https://github.com/se-edu/addressbook-level3/commit/35eb7286f18a029d39cb7a29df8f172a001e4fd8
+    //#diff-e6399ba0e95a3c101d6cfc7cab0eb7d487b7462ae1bf2dea7a1323b27c59f391
+    @Test
+    public void parseCommand_remark() throws Exception {
+        assertTrue(parser.parseCommand(TEST_REMARK_COMMAND_STRING) instanceof RemarkCommand);
+    }
+    //@@author
 
     @Test
     public void parseCommand_unrecognisedInput_throwsParseException() {
