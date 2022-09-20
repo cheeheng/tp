@@ -120,7 +120,8 @@ class JsonAdaptedPerson {
         //@@author cheeheng-reused
         //Reused from https://github.com/se-edu/addressbook-level3/commit/556cbd0e03ff224d7a68afba171ad2eb0ce56bbf
         if (remark == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Remark.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Remark.class.getSimpleName()));
         }
         final Remark modelRemark = new Remark(remark);
         //@@author cheeheng
