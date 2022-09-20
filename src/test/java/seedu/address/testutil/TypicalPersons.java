@@ -26,7 +26,7 @@ public class TypicalPersons {
     //@@author cheeheng-reused
     //Remark addition adapted from
     //https://github.com/se-edu/addressbook-level3/commit/556cbd0e03ff224d7a68afba171ad2eb0ce56bbf
-    private static final String EMPTY_REMARK = "";
+    public static final String EMPTY_REMARK = "";
 
     public static final Person ALICE = new PersonBuilder().withName("Alice Pauline")
             .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")

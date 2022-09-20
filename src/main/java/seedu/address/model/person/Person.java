@@ -34,7 +34,7 @@ public class Person {
         //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
         //#diff-c4705f0e6c86ae58f17f0dd1cec5b1abc7614ae894187cfe901068b6d6fb012d
         //with minor modifications
-        requireAllNonNull(name, phone, email, address, tags);
+        requireAllNonNull(name, phone, email, address, tags, remark);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -135,10 +135,7 @@ public class Person {
             tags.forEach(builder::append);
         }
 
-        Remark remark = getRemark();
-        if (remark.value != null) {
-            builder.append("; Remark: ").append(remark);
-        }
+        builder.append("; Remark: ").append(getRemark());
 
         return builder.toString();
     }

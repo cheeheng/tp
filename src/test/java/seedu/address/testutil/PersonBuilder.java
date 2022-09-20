@@ -22,9 +22,10 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
-    //Adapted from https://github.com/se-edu/addressbook-level3/commit/556cbd0e03ff224d7a68afba171ad2eb0ce56bbf
-    //Default remark changed from "" to some non-empty string
-    public static final String DEFAULT_REMARK = "random friend";
+    //@@author cheeheng-reused
+    //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
+    public static final String DEFAULT_REMARK = "";
+    //@@author
 
     private Name name;
     private Phone phone;

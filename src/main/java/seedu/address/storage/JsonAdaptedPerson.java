@@ -3,6 +3,7 @@ package seedu.address.storage;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -68,7 +69,7 @@ class JsonAdaptedPerson {
 
         //@@author cheeheng-reused
         //Reused from https://github.com/se-edu/addressbook-level3/commit/556cbd0e03ff224d7a68afba171ad2eb0ce56bbf
-        remark = source.getRemark().value;
+        remark = Optional.ofNullable(source.getRemark().value).orElse("");
         //@@author
     }
 

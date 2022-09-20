@@ -104,7 +104,8 @@ public class EditCommand extends Command {
         //Reused from https://github.com/se-edu/addressbook-level3/commit/ce998c37e65b92d35c91d28c7822cd139c2c0a5c
         //#diff-c4705f0e6c86ae58f17f0dd1cec5b1abc7614ae894187cfe901068b6d6fb012d
         //with minor modifications
-        Remark updatedRemark = new Remark(""); // edit command does not allow editing remarks
+        // Edit command does not allow editing remarks
+        Remark updatedRemark = personToEdit.getRemark();
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags,
                 updatedRemark);
