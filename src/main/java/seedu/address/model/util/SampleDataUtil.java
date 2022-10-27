@@ -39,7 +39,7 @@ public class SampleDataUtil {
                             new Task("Update developer guide")),
                     new HashSet<>(Arrays.asList(
                             new Link("https://nus-cs2103-ay2223s1.github.io/website/"),
-                            new Link(""))),
+                            new Link("https://nus-cs2103-ay2223s1.github.io/dashboards/contents/tp-progress.html"))),
                     new HashSet<>())
         };
     }
